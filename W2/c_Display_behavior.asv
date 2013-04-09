@@ -1,0 +1,57 @@
+close all;
+clear;
+
+beName =['..\W2\W5L-dateW.mat'];
+load(beName);
+rateT = dateW(:,2);
+for j =1 :length(rateT)
+rateTMW(j) = rateT{j}; 
+end
+
+beName =['..\A2\A5L-dateW.mat'];
+load(beName);
+rateT = dateW(:,3);
+for j =1 :length(rateT)-3
+rateTMA(j) = rateT{j}; 
+end
+
+beName =['..\L2\L5L-dateW.mat'];
+load(beName);
+rateT = dateW(:,3);
+for j =1 :length(rateT)-2
+rateTML(j) = rateT{j}*100; 
+end
+
+beName =['..\B2\B5L-dateW.mat'];
+load(beName);
+rateTMB = rateT*100; 
+
+% beName =['..\code_event_tag_for_cue_3chs\Q5L-dateW.mat'];
+% load(beName);
+% rateT = dateW(:,2);
+% for j =1 :length(rateT)
+% rateTMQ(j) = rateT{j}; 
+% end
+
+h = figure;
+hold on;
+   lWidth = 2;
+   plot(rateTMW,'r','linewidth',lWidth);
+   plot(rateTMA,'g','linewidth',lWidth);
+   plot(rateTML,'b','linewidth',lWidth);
+   plot(rateTMB,'y','linewidth',lWidth);
+  % lWidth = 2;
+   plot(23.5, (rateTMW(23)+rateMW(24))/2,'ro','linewidth',lWidth);
+   plot(9.5, (rateTMA(9)+rateMA(10))/2,'go','linewidth',lWidth);
+   plot(15.5,(rateTML(15)+rateML(16))/2,'b','linewidth',lWidth);
+   plot((7.5,rateTMW(23)+rateMW(24))/2,'y','linewidth',lWidth);
+   
+   legend('W09', 'A09', 'L10', 'B10','location','southeast');
+axis([0 length(rateTMW) 0 100])
+   titleName = ['Behavior correction rate'];
+   title(titleName);
+   saveas(h,titleName,'jpg');
+   
+
+   
+    

@@ -1,0 +1,13 @@
+Z = rand(,5);              %# Some random sample data 
+[r,c] = size(Z);            %# Size of Z 
+Y = [1 2 3 5 6 7 9 10 11];  %# The positions of bars along the y axis 
+C = mat2cell(kron(Z,ones(6,4)),6*r,4.*ones(1,c)).';  %'# Color data for Z 
+ 
+hBar = bar3(Y,Z);           %# Create the bar graph 
+set(hBar,{'CData'},C);      %# Add the color data 
+set(gca,'YTickLabel',{'x1' 'x2' 'x3'});  %# Modify the y axis tick labels 
+view(-70,30);               %# Change the camera view 
+colorbar;                   %# Add the color bar 
+text(-2,2,'grid1');         %# Add "grid1" text 
+text(-2,6,'grid2');         %# Add "grid2" text 
+text(-2,10,'grid3');        %# Add "grid3" text

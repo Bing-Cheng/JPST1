@@ -1,0 +1,5 @@
+cc = colormap;
+for i = 40 : 4 : 56
+i
+ci = floor(cc(i,:)*256)
+end

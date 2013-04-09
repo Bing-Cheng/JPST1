@@ -1,0 +1,9 @@
+x = normrnd(0.1,1,1,1000);
+y = normrnd(0.1,2,1,1000);
+
+
+[h1,p1,ci] = ttest2(smoothed,shufflesmoothed,[],[],'unequal')
+[h2,p2,ci] = ttest2(shufflesmoothedpos,shufflesmoothed,[],[],'unequal')
+[h3,p3,ci] = ttest2(smoothedpos,smoothed,[],[],'unequal')
+
+[u,s]normfit(shufflesmoothedpos)

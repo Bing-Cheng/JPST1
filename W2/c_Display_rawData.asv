@@ -1,0 +1,22 @@
+close all;
+clear;
+
+beName =['..\W2\W5L-dateW.mat'];
+load(beName);
+
+h = figure;
+plot(data(1:24414);
+   axis([0 length(rateTMW) 0 100]);
+   xlabel('Time (ms)');
+   ylabel('Correction rate');
+   
+
+   
+   
+   titleName = ['DisRawData'];
+  % title(titleName);
+   saveas(h,titleName,'jpg');
+   
+
+   
+    

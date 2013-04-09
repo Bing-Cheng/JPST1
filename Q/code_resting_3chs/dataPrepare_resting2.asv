@@ -1,0 +1,46 @@
+clear;
+block_date = {'12-02-10','12-03-10','12-06-10','12-07-10','12-09-10'};
+block_ch = {'9','10','14'};
+
+xData9 = [];    
+for id = 1 : length(block_date)
+  date =  block_date{id};
+  ch = '9';
+cb_saveName = [fin ch '_binned.mat'];
+load(cb_saveName);%,'xData1');
+ xData9 = [xData9 xData1]; 
+end
+
+xData10 = [];    
+for id = 1 : length(block_date)
+  date =  block_date{id};
+  ch = '10';
+cb_saveName = [fin ch '_binned.mat'];
+load(cb_saveName);%,'xData1');
+ xData10 = [xData10 xData1]; 
+end
+
+xData14 = [];    
+for id = 1 : length(block_date)
+  date =  block_date{id};
+  ch = '14';
+cb_saveName = [fin ch '_binned.mat'];
+load(cb_saveName);%,'xData1');
+ xData14 = [xData14 xData1]; 
+end
+
+rat = 'Q5L';
+mode= 'resting';
+windowLen = 1800;
+
+                xData = xData9;
+                yData = xData10;
+
+  
+                 fileName1 = [rat mode num2str(windowLen) dir num2str(chPair(1)) num2str(chPair(2)) '-' section '.mat']
+                    save(fileName1, 'xData', 'yData') 
+           
+            end%chPair
+         end%section
+    end%dir
+end%mode
